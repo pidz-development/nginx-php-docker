@@ -3,7 +3,11 @@ FROM php:7.2-fpm-alpine
 RUN set -xe \
     && apk add --no-cache \
         nginx \
-        supervisor
+        supervisor \
+        icu \
+        libpng \
+        libjpeg \
+        freetype
 
 # Install dependencies
 RUN set -xe \
