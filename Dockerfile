@@ -7,11 +7,11 @@ RUN set -xe \
 
 # Install dependencies
 RUN set -xe \
-	&& apk add --no-cache --virtual .build-deps \
+    && apk add --no-cache --virtual .build-deps \
         g++ \
         gcc \
         make \
-	    autoconf \
+        autoconf \
         libpng-dev \
         libxml2-dev \
         icu-dev \
