@@ -27,4 +27,6 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 
 COPY etc /etc/
 
+EXPOSE 80
+
 CMD ["supervisord", "-n", "-j", "/supervisord.pid"]
