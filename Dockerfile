@@ -20,7 +20,7 @@ RUN set -xe \
     && pecl install -o -f redis \
     && docker-php-ext-enable redis \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install soap pdo_mysql intl zip opcache xml \
+    && docker-php-ext-install gd soap pdo_mysql intl zip opcache xml \
     && apk del --no-network .build-deps
 
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
