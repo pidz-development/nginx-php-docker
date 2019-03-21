@@ -29,9 +29,6 @@ RUN set -xe \
 
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
-# https://github.com/gliderlabs/docker-alpine/issues/185#issuecomment-246595114
-RUN mkdir -p /run/nginx
-
 COPY etc /etc/
 
 EXPOSE 80
