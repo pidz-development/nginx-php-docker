@@ -7,7 +7,11 @@ RUN set -xe \
         icu \
         libpng \
         libjpeg \
-        freetype
+        freetype \
+        msttcorefonts-installer \
+        fontconfig \
+    && update-ms-fonts \
+    && fc-cache -f
 
 # Install dependencies
 RUN set -xe \
