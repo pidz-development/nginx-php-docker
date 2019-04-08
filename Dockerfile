@@ -45,7 +45,7 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
 COPY etc /etc/
-#COPY usr /usr/
+COPY usr /usr/
 
 EXPOSE 80
 
