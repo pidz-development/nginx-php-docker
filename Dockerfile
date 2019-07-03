@@ -10,6 +10,9 @@ RUN set -xe \
         freetype \
         msttcorefonts-installer \
         fontconfig \
+        wkhtmltopdf \
+        xvfb \
+        jq \
     && update-ms-fonts \
     && fc-cache -f
 
