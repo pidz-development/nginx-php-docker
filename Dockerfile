@@ -7,6 +7,7 @@ RUN set -xe \
         icu \
         libpng \
         libjpeg \
+        libssh2 \
         freetype \
         msttcorefonts-installer \
         fontconfig \
