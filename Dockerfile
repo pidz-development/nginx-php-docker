@@ -3,6 +3,8 @@ FROM php:7.2.20-fpm-alpine
 RUN set -xe \
     && apk add --no-cache \
         nginx \
+        git \
+        openssh-client \
         supervisor \
         icu \
         libpng \
