@@ -16,6 +16,8 @@ RUN set -xe \
         wkhtmltopdf \
         xvfb \
         jq \
+        nodejs \
+        yarn \
     && update-ms-fonts \
     && fc-cache -f
 
