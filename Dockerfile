@@ -1,4 +1,4 @@
-FROM amd64/php:7.4.13-fpm-alpine
+FROM amd64/php:8.0-fpm-alpine
 
 RUN set -xe \
     && apk add --no-cache \
@@ -9,7 +9,6 @@ RUN set -xe \
         icu \
         libpng \
         libjpeg \
-        libssh2 \
         libzip \
         freetype \
         msttcorefonts-installer \
@@ -22,7 +21,6 @@ RUN set -xe \
     && update-ms-fonts \
     && fc-cache -f
 
-# install build dependencies
 RUN set -xe \
     && apk add --no-cache --virtual .build-deps \
         g++ \
@@ -31,19 +29,15 @@ RUN set -xe \
         autoconf \
         libpng-dev \
         libxml2-dev \
-        zlib-dev \
-        libzip-dev\
         icu-dev \
+        libzip-dev \
         freetype-dev \
         libjpeg-turbo-dev \
-        libssh2-dev
-RUN pecl install -o -f redis ssh2-1.2
-RUN docker-php-ext-enable redis ssh2
-RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/
-RUN docker-php-ext-install gd soap pdo_mysql intl zip opcache xml iconv
-
-# remove the build dependencies
-RUN apk del --no-network .build-deps
+    && pecl install -o -f redis \
+    && docker-php-ext-enable redis \
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
+    && docker-php-ext-install gd soap pdo_mysql intl zip opcache xml iconv \
+    && apk del --no-network .build-deps
 
 RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community gnu-libiconv
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
