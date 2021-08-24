@@ -1,4 +1,4 @@
-FROM amd64/php:8.0-fpm-alpine
+FROM amd64/php:8.0.9-fpm-alpine
 
 RUN set -xe \
     && apk add --no-cache \
